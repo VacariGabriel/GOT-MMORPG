@@ -1,0 +1,24 @@
+{
+  "name": "game_of_thrones",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "",
+  "scripts": {
+    "start": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "consign": "^0.1.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "express-validator": "^2.20.8",
+    "mongodb": "^3.2.4"
+  },
+
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
