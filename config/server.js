@@ -31,6 +31,7 @@ consign()
 	.include('app/routes')
 	.then('app/models')
 	.then('app/controllers')
+	.then('config/dbConnection.js') //Para não gerar um loop infinito de criação de banco, necessário passar a extensão do arquivo
 	.into(app);
 
 /* exportar o objeto app */
