@@ -13,6 +13,29 @@ UsuariosDAO.prototype.inserirUsuario = function(dadosFormulario) {
     });
 }
 
+UsuariosDAO.prototype.autenticar = function(dadosLogin, req, res) {
+    this._connection.open((error, mongoclient) => { // abri a conexão com o servidor e me conectei com o banco de dados
+        mongoclient.collection("usuarios", (error, collection) => { // executa a função collection
+            collection.find({usuario: {$eq: dadosLogin.usuario}, senha: {$eq: dadosLogin.senha}}).toArray((err, result) => {
+
+                if(result[0] != undefined) {
+                    req.session.autorizado = true; 
+                    req.session.usuario = result[0].usuario; 
+                    req.session.casa = result[0].casa; 
+                }
+
+                if(req.session.autorizado)
+                    res.redirect("jogo");
+                else
+                    res.render("index", {validation: {}});
+                
+                
+            });
+            mongoclient.close();
+        });
+    });
+}
+
 module.exports = function() {
     return UsuariosDAO;
 }

@@ -14,9 +14,10 @@
     "consign": "^0.1.6",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-session": "^1.16.1",
     "express-validator": "^2.21.0",
     "lodash": "^4.17.11",
-    "mongodb": "^3.2.4"
+    "mongodb": "^2.2.9"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"

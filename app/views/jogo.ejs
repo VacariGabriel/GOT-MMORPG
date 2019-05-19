@@ -14,6 +14,14 @@
 		<!-- incluindo css -->
 		<link href="css/style.css" rel="stylesheet">
 
+		<script>
+			$(document).ready( () => {
+				$('#btn-sair').click(() => {
+					window.location.href = '/sair';
+				});
+			});
+		</script>
+
 	</head>
 
 	<body class="body-jogo">
@@ -21,7 +29,7 @@
 		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container">
 				<div class="form-group sair">
-					<button type="button" class="btn btn-info pull-right">Sair</button>
+					<button type="button" class="btn btn-info pull-right" id="btn-sair">Sair</button>
 				</div>
 			</div>
 		</nav>
