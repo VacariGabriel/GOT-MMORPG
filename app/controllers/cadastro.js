@@ -21,7 +21,12 @@ module.exports.cadastrar = function(application, req, res) {
     
     let usuariosDAO = new application.app.models.usuariosDAO(connection);
 
+    let jogoDAO = new application.app.models.jogoDAO(connection);
+
+    
     usuariosDAO.inserirUsuario(dadosForm);
+    jogoDAO.gerarParametros(dadosForm);
+
 
     res.send('Podemos Cadastrar');
     
