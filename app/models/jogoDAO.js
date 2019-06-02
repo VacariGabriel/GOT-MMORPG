@@ -19,12 +19,12 @@ JogoDAO.prototype.gerarParametros = function(dadosForm) {
     });
 }
 
-JogoDAO.prototype.iniciaJogo = function(res, usuario, req ) {
+JogoDAO.prototype.iniciaJogo = function(res, usuario, casa) {
         this._connection.open((error, mongoclient) => { // abri a conexão com o servidor e me conectei com o banco de dados
         mongoclient.collection("jogo", (error, collection) => { // executa a função collection
             collection.find({usuario : usuario}).toArray(function(err, result) {
-                console.log(result);
-                res.render('jogo.ejs', {img_casa: req.session.casa, jogo: result[0]});
+                console.log(result[0]);
+                res.render('jogo', {img_casa: casa, jogo: result[0]});
 
                 mongoclient.close();
             });
