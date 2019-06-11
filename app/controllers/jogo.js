@@ -21,3 +21,17 @@ module.exports.sair = function(application, req, res) {
         res.render("index", {validation: {}});
     });
 }
+
+module.exports.suditos = function(application, req, res) {
+    req.session.destroy(function() {
+        res.render("index", {validation: {}});
+    });
+}
+
+module.exports.suditos = function(application, req, res) {
+    res.render("aldeoes", {validation: {}});
+}
+
+module.exports.pergaminhos = function(application, req, res) {
+    res.render("pergaminhos", {validation: {}});
+}

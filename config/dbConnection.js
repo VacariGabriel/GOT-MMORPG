@@ -12,7 +12,7 @@ let connMongodb = function() {
     );
     
     return db;
-}
+}   
 
 module.exports = function() {
     return connMongodb;
