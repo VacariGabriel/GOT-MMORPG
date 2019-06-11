@@ -14,8 +14,8 @@ UsuariosDAO.prototype.inserirUsuario = function(dadosFormulario) {
 }
 
 UsuariosDAO.prototype.autenticar = function(dadosLogin, req, res) {
-    this._connection.open((error, mongoclient) => { // abri a conexão com o servidor e me conectei com o banco de dados
-        mongoclient.collection("usuarios", (error, collection) => { // executa a função collection
+    this._connection.open((error, mongoclient) => { 
+        mongoclient.collection("usuarios", (error, collection) => { 
             collection.find({usuario: {$eq: dadosLogin.usuario}, senha: {$eq: dadosLogin.senha}}).toArray((err, result) => {
 
                 if(result[0] != undefined) {

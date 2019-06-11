@@ -20,18 +20,23 @@
 					window.location.href = '/sair';
 				});
 			
-				$('btn_suditos').click(() => {
+				$('#btn_suditos').click(() => {
+					$('#msg-erros').hide(); // caso ouver erros, ao clicar no botao suditos novamente, ele esconde a mensagem
+
 					$.ajax({
 						url: '/suditos',
 						method: 'get',
 						success: data => {
 							$('#acoes').html(data); //Função ajax trata a requisição e devolve um html e incluimos dentro da div ações
+
 						}
 					});
 				});
 
 				
-				$('btn_pergaminho').click(() => {
+				$('#btn_pergaminho').click(() => {
+					$('#msg-erros').hide();
+
 					$.ajax({
 						url: '/pergaminhos',
 						method: 'get',
@@ -59,7 +64,11 @@
 		</nav>
 
 	    <div class="container">
-	    	
+	    	<% if(comando_invalido === 'S') { %> 
+				<div class="alert alert-danger" id="msg-erros">
+					<strong>Operação Inválida, verifique se todos os campos foram informados!</strong>
+				</div>
+			<% } %>
 			<div class="row">
 	    		<div class="col-sm-3 casa">
 					<img src="images/casa_<%=img_casa%>.jpg" />
