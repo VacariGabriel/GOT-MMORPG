@@ -21,7 +21,7 @@
 				});
 			
 				$('#btn_suditos').click(() => {
-					$('#msg-erros').hide(); // caso ouver erros, ao clicar no botao suditos novamente, ele esconde a mensagem
+					$('#msg').hide(); // caso ouver erros, ao clicar no botao suditos novamente, ele esconde a mensagem
 
 					$.ajax({
 						url: '/suditos',
@@ -35,7 +35,7 @@
 
 				
 				$('#btn_pergaminho').click(() => {
-					$('#msg-erros').hide();
+					$('#msg').hide();
 
 					$.ajax({
 						url: '/pergaminhos',
@@ -64,9 +64,15 @@
 		</nav>
 
 	    <div class="container">
-	    	<% if(comando_invalido === 'S') { %> 
-				<div class="alert alert-danger" id="msg-erros">
+	    	<% if(msg === 'A') { %> 
+				<div class="alert alert-danger" id="msg">
 					<strong>Operação Inválida, verifique se todos os campos foram informados!</strong>
+				</div>
+			<% } %>
+
+			<% if(msg === 'B') { %> 
+				<div class="alert alert-info" id="msg">
+					<strong>Ação realizada com sucesso</strong>
 				</div>
 			<% } %>
 			<div class="row">
