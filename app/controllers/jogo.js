@@ -42,6 +42,14 @@ module.exports.pergaminhos = function(application, req, res) {
         return ;
     } 
 
+    //recupera as ações inseridas no banco
+    let connection = application.config.dbConnection;
+    let jogoDAO = application.models.jogoDAO(connection);
+
+    let usuario = req.session.usuario;
+
+    jogoDAO.getAcoes(usuario);
+
     res.render("pergaminhos", {validation: {}});
 }
 
