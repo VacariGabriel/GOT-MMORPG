@@ -1,3 +1,5 @@
+let objetctId = require('mongodb').ObjectID;
+
 function JogoDAO(connection) {
     this._connection = connection(); //o underline é um conveção e diz que não deve ser usada fora do módulo.
 }
@@ -101,6 +103,18 @@ JogoDAO.prototype.getAcoes = function(usuario, res) {
     });
 }
 
+
+JogoDAO.prototype.revogarAcao = function(_id, res) {
+    this._connection.open((error, mongoclient) => { // abri a conexão com o servidor e me conectei com o banco de dados
+        mongoclient.collection("acao", (error, collection) => { // executa a função collection
+            collection.remove(
+                {_id : ObjectID(_id)},
+                (err, result) => { res.redirect('jogo?msg=D') }
+            );
+            mongoclient.close();
+        });
+    });
+}
 
 module.exports = function() {
     return JogoDAO;
