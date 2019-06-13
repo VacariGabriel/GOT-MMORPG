@@ -42,12 +42,27 @@
 						method: 'get',
 						success: data => {
 							$('#acoes').html(data); 
+							
+							clearTimeout(timerId);
+							cronometro();
 						}
 					});
 				});
 
 			});
 
+			let timerId = null;
+
+			function conometro() {
+				$('.tempo-restante').each(() => {
+					let segundos = $(this).html();
+					let segundos_atuais = parseInt(segundos) - 1;
+
+					$(this).html(segundos_atuais);
+
+					timerId = setTimeout('cronometro()', 1000);
+				});
+			}
 
 		</script>
 

@@ -63,7 +63,11 @@ JogoDAO.prototype.acao = function(acao) {
 JogoDAO.prototype.getAcoes = function(usuario, res) {
     this._connection.open((error, mongoclient) => { // abri a conexão com o servidor e me conectei com o banco de dados
         mongoclient.collection("acao", (error, collection) => { // executa a função collection
-            collection.find({usuario : usuario}).toArray(function(err, result) {
+            
+            let date = new Date();
+            let momento_atual = date.getTime();
+
+            collection.find({usuario : usuario, acao_termina_em: { $gt: momento_atual }}).toArray(function(err, result) {
 
                 res.render("pergaminhos", { acoes: result });
 
