@@ -1,4 +1,4 @@
-## Game of Thrones Game
+## Game of Thrones
 
 Desenvolvi esse jogo para treinar Nodejs e MongoDB
 
