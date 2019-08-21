@@ -1,15 +1,12 @@
-## Game of Thrones
+# Game of Thrones
 
-Desenvolvi esse jogo para treinar Nodejs e MongoDB
+## Objectives
+- Training my abilities with [NodeJS](https://nodejs.org/en/) and [Express.js](https://expressjs.com/pt-br/)  
 
-Requisitos:
-  -Nodejs
-  -Mongodb
-  
-Como jogar ?
+## Run the project
+- Download or clone this repo
+- Run ```npm install``` to download project dependecies
+- Run ```npm start```
+- Project will run on ```http://localhost:3000```
 
-```git clone https://github.com/VacariGabriel/GOT-MMORPG.git```
 
-```npm install```
-
-```npm start```
