@@ -1,4 +1,6 @@
 # Game of Thrones
+A strategy game developed based on the game of thrones series
+
 
 ## Objectives
 - Training my abilities with [NodeJS](https://nodejs.org/en/) and [Express.js](https://expressjs.com/pt-br/)  
